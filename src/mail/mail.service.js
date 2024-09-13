@@ -4,8 +4,8 @@ const transporter = nodemailer.createTransport({
   host: 'smtp.ethereal.email',
   port: 587,
   auth: {
-      user: 'lonnie.fadel82@ethereal.email',
-      pass: 'cNMXPy8xcB3XFAy16P'
+      user: 'judd.bogan65@ethereal.email',
+      pass: 'zzqSdGjSNRJDNmb3cA'
   },
   tls: {
     rejectUnauthorized: false // Ignorar certificados autofirmados
@@ -14,9 +14,8 @@ const transporter = nodemailer.createTransport({
 
 export const sendMail = async (pedido, fechaEntrega, total, nombre, formaPago) => {
   try {
-    console.log(pedido)
     const info = await transporter.sendMail({
-      from: `"Nombre de tu App" <kamron.goldner48@ethereal.email>`,
+      from: `"TangoApp" <kamron.goldner48@ethereal.email>`,
       to: 'neva59@ethereal.email',
       subject: `Confirmación de Cotización: #${pedido}`,
       // text: `Detalles de la cotización: ${pedido}, Fecha de Retiro: ${fechaRetiro}, Fecha de Entrega: ${fechaEntrega}, Total: ${total}`,
@@ -108,7 +107,6 @@ export const sendMail = async (pedido, fechaEntrega, total, nombre, formaPago) =
 </body>
 </html>`
     });
-    console.log('tengo mieddooo')
     console.log('Correo enviado:', info);
     return info;
   } catch (error) {
