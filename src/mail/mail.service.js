@@ -6,11 +6,15 @@ const transporter = nodemailer.createTransport({
   auth: {
       user: 'lonnie.fadel82@ethereal.email',
       pass: 'cNMXPy8xcB3XFAy16P'
+  },
+  tls: {
+    rejectUnauthorized: false // Ignorar certificados autofirmados
   }
 });
 
 export const sendMail = async (pedido, fechaEntrega, total, nombre, formaPago) => {
   try {
+    console.log(pedido)
     const info = await transporter.sendMail({
       from: `"Nombre de tu App" <kamron.goldner48@ethereal.email>`,
       to: 'neva59@ethereal.email',
@@ -104,7 +108,7 @@ export const sendMail = async (pedido, fechaEntrega, total, nombre, formaPago) =
 </body>
 </html>`
     });
-
+    console.log('tengo mieddooo')
     console.log('Correo enviado:', info);
     return info;
   } catch (error) {
